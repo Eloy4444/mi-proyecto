@@ -1,0 +1,26 @@
+name: CI Pipeline  # Nombre del flujo de trabajo
+
+on:
+  push:
+    branches:
+      - develop  # Se activa cuando hay un push a la rama main
+  pull_request:
+    branches:
+      - dev  # Se activa cuando hay un pull request a la rama main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Especifica el sistema operativo
+
+    steps:
+      # Paso 1: Checkout del código
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Paso 2: Instalar dependencias (ejemplo para Node.js)
+      - name: Install dependencies
+        run: npm install
+
+      # Paso 3: Ejecutar tests (ejemplo para Node.js)
+      # - name: Run tests
+      #  run: npm test
